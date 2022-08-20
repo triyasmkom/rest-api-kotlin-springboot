@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  kotline-restful-api-postgres:
+    container_name: "kotline-restful-api-postgres"
+    image: postgres:12-alpine
+    ports:
+      - 5411:5432
+    environment:
+      POSTGRES_PASSWORD: kotlin
+      POSTGRES_USER: kotlin
+      POSTGRES_DB: restful-api
+
+# run : docker-compose -f .\docker-compose.yaml up -d
+# cek log : docker container logs kotline-restful-api-postgres
+# cek port : Get-Process -Id (Get-NetTCPConnection -LocalPort 5411).OwningProcess atau netstat -aon
+
