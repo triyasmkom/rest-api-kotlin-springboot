@@ -1,0 +1,40 @@
+PUT
+http://localhost:8111/api/products/A01
+@X-Api-Key:SECRET
+@Content-Type: application/json
+@Accept: application/json
+{
+    "name": "Apple Mac Book Pro 15",
+    "price": 40000000,
+    "quantity": 100
+}
+%%%
+# Duration: 45 ms
+# PUT
+# http://localhost:8111/api/products/A01
+# Headers
+# @Accept: application/json
+# @Content-Type: application/json
+# Body
+# {
+#     "name": "Apple Mac Book Pro 15",
+#     "price": 40000000,
+#     "quantity": 100
+# }
+
+
+# status 200
+
+@Content-Type: application/json
+@Transfer-Encoding: chunked
+@Date: Sun, 04 Sep 2022 15:17:23 GMT
+@Keep-Alive: timeout=60
+@Connection: keep-alive
+
+
+# length: [51]
+{
+  "code": 404,
+  "status": "NOT FOUND",
+  "data": "NOTFOUND"
+}

@@ -1,0 +1,52 @@
+POST
+http://localhost:8111/api/products
+@X-Api-Key:SECRET
+@Content-Type: application/json
+@Accept: application/json
+{
+    "id": "A0011",
+    "name": "Mac Book Pro 15",
+    "price": 3000000,
+    "quantity": 10
+}
+
+
+%%%
+# Duration: 658 ms
+# POST
+# http://localhost:8111/api/products
+# Headers
+# @Accept: application/json
+# @X-Api-Key: SECRET
+# @Content-Type: application/json
+# Body
+# {
+#     "id": "A0011",
+#     "name": "Mac Book Pro 15",
+#     "price": 3000000,
+#     "quantity": 10
+# }
+
+
+# status 200
+
+@Content-Type: application/json
+@Transfer-Encoding: chunked
+@Date: Sun, 04 Sep 2022 16:51:57 GMT
+@Keep-Alive: timeout=60
+@Connection: keep-alive
+
+
+# length: [164]
+{
+  "code": 200,
+  "status": "OK",
+  "data": {
+    "id": "A0011",
+    "name": "Mac Book Pro 15",
+    "price": 3000000,
+    "quantity": 10,
+    "createdAt": "2022-09-04T16:51:57.369+00:00",
+    "updatedAt": null
+  }
+}

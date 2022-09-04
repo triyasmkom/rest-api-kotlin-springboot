@@ -1,0 +1,69 @@
+GET
+http://localhost:8111/api/products?size=5
+@Accept: application/json
+@X-Api-Key:SECRET
+
+%%%
+# Duration: 31 ms
+# GET
+# http://localhost:8111/api/products?size=5
+# Headers
+# @Accept: application/json
+
+
+# status 200
+
+@Content-Type: application/json
+@Transfer-Encoding: chunked
+@Date: Sun, 04 Sep 2022 16:05:17 GMT
+@Keep-Alive: timeout=60
+@Connection: keep-alive
+
+
+# length: [690]
+{
+  "code": 200,
+  "status": "OK",
+  "data": [
+    {
+      "id": "A0001",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:01:46.087+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0002",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:06.203+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0003",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:10.821+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0004",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:13.942+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0005",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:17.071+00:00",
+      "updatedAt": null
+    }
+  ]
+}

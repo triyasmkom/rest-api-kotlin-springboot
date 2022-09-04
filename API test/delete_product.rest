@@ -1,0 +1,28 @@
+DELETE
+http://localhost:8111/api/products/A0001
+@X-Api-Key:SECRET
+@Accept: application/json
+
+%%%
+# Duration: 26 ms
+# DELETE
+# http://localhost:8111/api/products/A0001
+# Headers
+# @Accept: application/json
+
+
+# status 200
+
+@Content-Type: application/json
+@Transfer-Encoding: chunked
+@Date: Sun, 04 Sep 2022 15:37:16 GMT
+@Keep-Alive: timeout=60
+@Connection: keep-alive
+
+
+# length: [51]
+{
+  "code": 404,
+  "status": "NOT FOUND",
+  "data": "NOTFOUND"
+}

@@ -1,0 +1,110 @@
+GET
+http://localhost:8111/api/products
+@X-Api-Key:SECRET
+@Accept: application/json
+
+%%%
+# Duration: 175 ms
+# GET
+# http://localhost:8111/api/products
+# Headers
+# @Accept: application/json
+# @X-Api-Key: SECRET
+
+
+# status 200
+
+@Content-Type: application/json
+@Transfer-Encoding: chunked
+@Date: Sun, 04 Sep 2022 16:52:50 GMT
+@Keep-Alive: timeout=60
+@Connection: keep-alive
+
+
+# length: [1345]
+{
+  "code": 200,
+  "status": "OK",
+  "data": [
+    {
+      "id": "A0001",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:01:46.087+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0002",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:06.203+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0003",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:10.821+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0004",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:13.942+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0005",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:17.071+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0006",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:20.426+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0007",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:23.822+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0008",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:27.170+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0009",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:31.545+00:00",
+      "updatedAt": null
+    },
+    {
+      "id": "A0010",
+      "name": "Mac Book Pro 15",
+      "price": 3000000,
+      "quantity": 10,
+      "createdAt": "2022-09-04T16:02:35.470+00:00",
+      "updatedAt": null
+    }
+  ]
+}
