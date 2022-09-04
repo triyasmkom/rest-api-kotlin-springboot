@@ -5,4 +5,6 @@ import com.ths.resfulapikotlin.model.ProductResponse
 
 interface ProductService {
     fun create(createProductRequest: CreateProductRequest):ProductResponse
+
+    fun get(id: String):ProductResponse
 }

@@ -2,10 +2,12 @@ package com.ths.resfulapikotlin.service.impl
 
 import com.ths.resfulapikotlin.ValidationUtils
 import com.ths.resfulapikotlin.entity.Product
+import com.ths.resfulapikotlin.error.NotFoundException
 import com.ths.resfulapikotlin.model.CreateProductRequest
 import com.ths.resfulapikotlin.model.ProductResponse
 import com.ths.resfulapikotlin.repository.ProductRepository
 import com.ths.resfulapikotlin.service.ProductService
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -28,6 +30,19 @@ class ProductServiceImpl(
 
         productRepository.save(product);
 
+        return response(product)
+    }
+
+    override fun get(id: String): ProductResponse {
+        val product = productRepository.findByIdOrNull(id)
+        if(product==null){
+            throw NotFoundException()
+        } else {
+            return response(product)
+        }
+    }
+
+    private fun response(product: Product):ProductResponse{
         return ProductResponse(
             id = product.id,
             name = product.name,
