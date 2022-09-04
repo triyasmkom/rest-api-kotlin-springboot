@@ -1,6 +1,7 @@
 package com.ths.resfulapikotlin.service
 
 import com.ths.resfulapikotlin.model.CreateProductRequest
+import com.ths.resfulapikotlin.model.ListProductRequest
 import com.ths.resfulapikotlin.model.ProductResponse
 import com.ths.resfulapikotlin.model.UpdateProductRequest
 
@@ -12,4 +13,6 @@ interface ProductService {
     fun update(id: String, updateProductRequest: UpdateProductRequest):ProductResponse
 
     fun delete(id: String)
+
+    fun list(listProductRequest: ListProductRequest):List<ProductResponse>
 }

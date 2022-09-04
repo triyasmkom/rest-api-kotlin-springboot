@@ -4,13 +4,17 @@ import com.ths.resfulapikotlin.ValidationUtils
 import com.ths.resfulapikotlin.entity.Product
 import com.ths.resfulapikotlin.error.NotFoundException
 import com.ths.resfulapikotlin.model.CreateProductRequest
+import com.ths.resfulapikotlin.model.ListProductRequest
 import com.ths.resfulapikotlin.model.ProductResponse
 import com.ths.resfulapikotlin.model.UpdateProductRequest
 import com.ths.resfulapikotlin.repository.ProductRepository
 import com.ths.resfulapikotlin.service.ProductService
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*
+import java.util.stream.Collectors
+import kotlin.collections.List
 
 @Service
 class ProductServiceImpl(
@@ -57,6 +61,13 @@ class ProductServiceImpl(
     override fun delete(id: String) {
         val product = findProductByIdOrThrowNotFound(id)
         productRepository.delete(product)
+    }
+
+    override fun list(listProductRequest: ListProductRequest): List<ProductResponse> {
+        val page = productRepository.findAll(PageRequest.of(listProductRequest.page, listProductRequest.size))
+        val product: kotlin.collections.List<Product> = page.get().collect(Collectors.toList())
+
+        return product.map { response(it) }
     }
 
     private fun findProductByIdOrThrowNotFound(id:String):Product{
