@@ -1,6 +1,7 @@
 package com.ths.resfulapikotlin.controller
 
 import com.ths.resfulapikotlin.error.NotFoundException
+import com.ths.resfulapikotlin.error.UnauthorizeException
 import com.ths.resfulapikotlin.model.WebResponse
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -23,7 +24,16 @@ class ErrorController {
         return WebResponse(
             code =404,
             status = "NOT FOUND",
-            data = "NOTFOUND"
+            data = "NOT FOUND"
+        )
+    }
+
+    @ExceptionHandler(value = [UnauthorizeException::class])
+    fun unAuthorized(unAuthorizeException: UnauthorizeException):WebResponse<String>{
+        return WebResponse(
+            code = 401,
+            status = "UNAUTHORIZED",
+            data = "Please put your X-Api-Key in header"
         )
     }
 }
