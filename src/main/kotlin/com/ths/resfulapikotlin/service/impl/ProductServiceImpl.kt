@@ -35,22 +35,13 @@ class ProductServiceImpl(
     }
 
     override fun get(id: String): ProductResponse {
-        val product = productRepository.findByIdOrNull(id)
-        if(product==null){
-            throw NotFoundException()
-        } else {
-            return response(product)
-        }
+        val product = findProductByIdOrThrowNotFound(id)
+        return response(product)
     }
 
     override fun update(id: String, updateProductRequest: UpdateProductRequest): ProductResponse {
-        val product = productRepository.findByIdOrNull(id)
-        if(product==null){
-            throw NotFoundException()
-        }
-
+        val product = findProductByIdOrThrowNotFound(id)
         validationUtils.validate(updateProductRequest)
-
         product.apply {
             name = updateProductRequest.name!!
             price = updateProductRequest.price!!
@@ -61,6 +52,20 @@ class ProductServiceImpl(
         productRepository.save(product)
         return response(product)
 
+    }
+
+    override fun delete(id: String) {
+        val product = findProductByIdOrThrowNotFound(id)
+        productRepository.delete(product)
+    }
+
+    private fun findProductByIdOrThrowNotFound(id:String):Product{
+        val product = productRepository.findByIdOrNull(id)
+        if(product==null){
+            throw NotFoundException()
+        } else{
+            return product
+        }
     }
 
     private fun response(product: Product):ProductResponse{
