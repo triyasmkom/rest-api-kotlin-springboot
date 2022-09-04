@@ -5,6 +5,7 @@ import com.ths.resfulapikotlin.model.ProductResponse
 import com.ths.resfulapikotlin.model.UpdateProductRequest
 import com.ths.resfulapikotlin.model.WebResponse
 import com.ths.resfulapikotlin.service.ProductService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -54,6 +55,19 @@ class ProductController (val productService: ProductService){
             code = 200,
             status = "OK",
             data = productResponse
+        )
+    }
+
+    @DeleteMapping(
+        value = ["/api/products/{id_product}"],
+        produces = ["application/json"]
+    )
+    fun deleteProduct(@PathVariable ("id_product") id:String):WebResponse<String>{
+        productService.delete(id)
+        return WebResponse(
+            code = 200,
+            status = "OK",
+            data = "$id deleted!!"
         )
     }
 }
