@@ -5,6 +5,7 @@ import com.ths.resfulapikotlin.entity.Product
 import com.ths.resfulapikotlin.error.NotFoundException
 import com.ths.resfulapikotlin.model.CreateProductRequest
 import com.ths.resfulapikotlin.model.ProductResponse
+import com.ths.resfulapikotlin.model.UpdateProductRequest
 import com.ths.resfulapikotlin.repository.ProductRepository
 import com.ths.resfulapikotlin.service.ProductService
 import org.springframework.data.repository.findByIdOrNull
@@ -40,6 +41,26 @@ class ProductServiceImpl(
         } else {
             return response(product)
         }
+    }
+
+    override fun update(id: String, updateProductRequest: UpdateProductRequest): ProductResponse {
+        val product = productRepository.findByIdOrNull(id)
+        if(product==null){
+            throw NotFoundException()
+        }
+
+        validationUtils.validate(updateProductRequest)
+
+        product.apply {
+            name = updateProductRequest.name!!
+            price = updateProductRequest.price!!
+            quantity = updateProductRequest.quantity!!
+            updatedAt = Date()
+        }
+
+        productRepository.save(product)
+        return response(product)
+
     }
 
     private fun response(product: Product):ProductResponse{
